@@ -1,0 +1,68 @@
+/* ===== Main App Wrapper ===== */
+.App {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0a192f, #0077b6, #00b4d8); /* gradient background */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* text white for contrast */
+  padding: 20px;
+}
+
+/* ===== Logo ===== */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  border-radius: 12px; /* optional rounded logo */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  transition: transform 0.5s ease;
+}
+
+.App-logo:hover {
+  transform: scale(1.05) rotate(8deg);
+}
+
+/* ===== Logo Animation ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Header ===== */
+.App-header {
+  background-color: transparent;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #90e0ef; /* light blue accent */
+  text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+/* ===== Links ===== */
+.App-link {
+  color: #ba265d; /* rose/pink accent */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.App-link:hover {
+  color: #ff90b3; /* lighter pink on hover */
+  transform: scale(1.05);
+}

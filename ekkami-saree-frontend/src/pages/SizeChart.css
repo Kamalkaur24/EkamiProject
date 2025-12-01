@@ -1,0 +1,61 @@
+.size-chart-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  background: #FFF8F0; /* soft ivory background */
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(34,34,34,0.08); /* charcoal shadow */
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #C71585; /* primary magenta */
+  font-weight: 700;
+}
+
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  background: #FF6F61; /* bright coral table background */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(34,34,34,0.08); /* charcoal shadow */
+}
+
+.size-table th,
+.size-table td {
+  border: 1px solid #FFD700; /* gold border */
+  padding: 12px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.size-table th {
+  background-color: #C71585; /* magenta header */
+  font-weight: 600;
+  color: #FFF8F0; /* soft ivory text */
+}
+
+.size-table td {
+  color: #222222; /* deep charcoal text */
+  background-color: #FFE7E5; /* subtle coral tint for cells */
+}
+
+.size-img img {
+  max-width: 300px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(34,34,34,0.1); /* charcoal shadow */
+}
+
+.size-note {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #C71585; /* primary magenta */
+  line-height: 1.5;
+}

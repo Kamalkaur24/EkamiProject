@@ -1,0 +1,146 @@
+/* ---------------- VARIABLES ---------------- */
+:root {
+  --peach-fuzz: #ffcdb2;
+  --powder-blush: #ffb4a2;
+  --cotton-candy: #e5989b;
+  --dusty-rose: #b5838d;
+  --dim-grey: #6d6875;
+}
+
+/* About Page Base */
+.about-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--dim-grey);
+  background: var(--peach-fuzz);
+}
+
+/* Banner */
+.about-banner {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+  transform: scale(1.05);
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: fadeDown 1s ease;
+}
+
+.banner-text h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--dusty-rose);
+  text-transform: uppercase;
+}
+
+/* Content */
+.about-content {
+  max-width: 950px;
+  margin: 50px auto;
+  padding: 0 24px;
+  text-align: center;
+  line-height: 1.9;
+  font-size: 17px;
+  color: var(--dim-grey);
+  animation: fadeUp 1.2s ease;
+}
+
+.about-content h2 {
+  margin: 35px 0 20px;
+  font-size: 26px;
+  color: var(--cotton-candy);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-content p {
+  margin-bottom: 16px;
+}
+
+.about-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.about-content ul li {
+  margin: 10px 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: var(--dusty-rose);
+  font-weight: 500;
+}
+
+/* Closing line */
+.closing {
+  margin-top: 30px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--dim-grey);
+}
+
+/* Links */
+.about-content a {
+  color: var(--cotton-candy);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: 0.25s ease;
+}
+
+.about-content a:hover {
+  border-color: var(--cotton-candy);
+  opacity: 0.85;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-text h1 {
+    font-size: 34px;
+  }
+
+  .about-content {
+    font-size: 15px;
+  }
+
+  .about-content h2 {
+    font-size: 22px;
+  }
+}
