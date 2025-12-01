@@ -1,18 +1,48 @@
 const mongoose = require("mongoose");
 
-const productSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  price: { type: Number, required: true },
+const CartItemSchema = new mongoose.Schema(
+  {
+    productId: {
+      type: String,     // not ObjectId
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      required: true,
+      default: 1,
+      min: 1,
+    },
+  },
+  { _id: false }
+);
 
-  // full URL or local image path — same works
-  image: { type: String, required: true },
+const CartSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+      unique: true, // one cart per user
+    },
 
-  category: { type: String, required: true },
+    items: {
+      type: [CartItemSchema],
+      default: [],
+    },
 
-  description: { type: String, default: "" },
+    totalQuantity: {
+      type: Number,
+      default: 0,
+    },
 
-  stock: { type: Number, default: 10 },   // OPTIONAL – future cart fix
-  createdAt: { type: Date, default: Date.now }  // OPTIONAL – sorting use
-});
+    totalPrice: {
+      type: Number,
+      default: 0,
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model("Product", productSchema);
+const CartModel = mongoose.model("Cart", CartSchema);
+
+module.exports = CartModel;

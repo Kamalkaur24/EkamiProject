@@ -18,7 +18,7 @@ const Navbar = () => {
       {/* Left Logo */}
       <div className="navbar-logo">
         <Link to="/">
-          <img src="/saree9.jpeg" alt="EKAMMI Logo" className="logo-img" />
+          <img src="images/saree9.jpeg" alt="EKAMMI Logo" className="logo-img" />
         </Link>
       </div>
 
