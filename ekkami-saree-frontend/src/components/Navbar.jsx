@@ -33,6 +33,9 @@ const Navbar = () => {
 
       {/* Right Side Icons */}
       <div className="navbar-icons">
+        <button className="btn logout-btn" onClick={() => navigate("/myorders")}>
+          My Orders
+        </button>
         <Link to="/wishlist" className="icon">
           <FaHeart color="#ff4d6d" size={22} /> {/* red heart */}
         </Link>

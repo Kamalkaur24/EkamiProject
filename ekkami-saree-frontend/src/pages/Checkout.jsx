@@ -140,7 +140,7 @@ export default function Checkout() {
 
 
             alert("Order placed successfully with Cash on Delivery!");
-            navigate("/"); // or /thank-you
+            navigate("/myorders"); // or /thank-you
         } catch (err) {
             console.error("Failed to place order:", err);
             alert(err?.response?.data?.message || "Could not place order. Please try again.");

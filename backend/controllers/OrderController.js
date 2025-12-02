@@ -34,6 +34,8 @@ const createOrder = async (req, res) => {
             });
         }
 
+
+
         // If items not sent from frontend, fallback to cart
         if (!Array.isArray(items) || items.length === 0) {
             const cart = await CartModel.findOne({ user: userId }).lean();

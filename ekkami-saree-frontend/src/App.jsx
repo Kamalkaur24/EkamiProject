@@ -24,6 +24,7 @@ import SizeChart from "./pages/SizeChart";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import MyOrders from "./pages/MyOrders";
 
 // ✅ Scroll to top on route change
 function ScrollToTop() {
@@ -105,6 +106,15 @@ function App() {
             }
           />
 
+
+          <Route
+            path="/myorders"
+            element={
+              <PrivateRoute>
+                <MyOrders />
+              </PrivateRoute>
+            }
+          />
 
           {/* Category Pages */}
           <Route path="/Saree" element={<Saree />} />
