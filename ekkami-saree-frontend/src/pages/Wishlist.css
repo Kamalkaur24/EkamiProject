@@ -1,4 +1,4 @@
-/* =============== MAIN WRAPPER =============== */
+
 .wishlist-container {
   min-height: 80vh;
   padding: 40px 20px;
@@ -134,4 +134,4 @@
   .wishlist-card img {
     height: 160px;
   }
-}
+} 

@@ -155,11 +155,7 @@ export default function ProductModal({ product, onClose }) {
         <div className="modal-right">
           <div className="details-box">
             <h2 className="product-title">{title}</h2>
-            <div className="title-divider">
-              <span className="flower">
-                𓂃˖˳·˖ ִֶָ ⋆🌷͙⋆ ִֶָ˖·˳˖𓂃 ִֶָ
-              </span>
-            </div>
+           
 
             <p className="product-price">Rs. {price}</p>
 

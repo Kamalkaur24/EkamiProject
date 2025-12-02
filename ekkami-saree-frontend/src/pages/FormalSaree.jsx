@@ -18,7 +18,7 @@ export default function FormalSaree() {
       <div className="category-box">
         <h2 className="category-heading">Formal Saree</h2>
         <div className="product-grid">
-          {products.map((item) => (
+          {products.slice(10, 18).map((item) => (
             <ProductCard key={item._id} product={item} />
           ))}
         </div>

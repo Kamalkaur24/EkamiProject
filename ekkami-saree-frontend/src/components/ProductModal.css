@@ -1,10 +1,10 @@
 /* ---------------- VARIABLES ---------------- */
 :root {
-  --primary-magenta: #C71585;   /* Royal Magenta */
-  --bright-coral: #FF6F61;      /* Bright Coral */
-  --accent-gold: #FFD700;       /* Gold */
-  --soft-ivory: #FFF8F0;        /* Soft Ivory */
-  --deep-charcoal: #222222;     /* Deep Charcoal */
+  --nude-beige: #f4ede4;         /* Soft luxury beige */
+  --terracotta: #8c4a3f;        /* Deep terracotta accent */
+  --warm-gold: #d9c4a0;         /* Soft gold highlight */
+  --ivory: #fffdfb;             /* Clean ivory white */
+  --charcoal: #222;             /* Deep text color */
 }
 
 /* OVERLAY */
@@ -14,11 +14,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(34,34,34,0.65); /* deep charcoal overlay */
+  background: rgba(20, 20, 20, 0.45);
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
   z-index: 1000;
 }
 
@@ -30,24 +30,25 @@
   border-radius: 18px;
   overflow: hidden;
 
-  background: linear-gradient(135deg, var(--primary-magenta), var(--bright-coral), var(--accent-gold));
-  color: var(--soft-ivory);
+  background: var(--ivory);
+  color: var(--charcoal);
   position: relative;
-  box-shadow: 0 10px 35px rgba(34,34,34,0.45); /* charcoal shadow */
-  animation: popIn 0.25s ease;
+  box-shadow: 0 12px 38px rgba(0,0,0,0.18);
+  animation: popIn 0.28s ease;
+  border: 1px solid #e8dfd8;
 }
 
 @keyframes popIn {
-  from { opacity: 0; transform: scale(0.9); }
+  from { opacity: 0; transform: scale(0.92); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* CLOSE BTN */
+/* CLOSE BUTTON */
 .modal-close {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: var(--soft-ivory);
+  background: var(--ivory);
   border: none;
   font-size: 22px;
   cursor: pointer;
@@ -58,32 +59,32 @@
   justify-content: center;
   align-items: center;
 
-  box-shadow: 0 3px 10px rgba(34,34,34,0.3);
-  transition: transform 0.2s;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  transition: 0.25s ease;
 }
 .modal-close:hover {
   transform: scale(1.15);
-  background: var(--bright-coral);
-  color: var(--soft-ivory);
+  background: var(--terracotta);
+  color: white;
 }
 
-/* LEFT - PRODUCT IMAGE */
+/* LEFT - IMAGE */
 .modal-left {
   flex: 1;
-  background: rgba(255,255,255,0.05);
+  background: var(--nude-beige);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 25px;
-  backdrop-filter: blur(2px);
 }
 
 .modal-left img {
   max-width: 100%;
   max-height: 500px;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(34,34,34,0.25);
+  border-radius: 14px;
+  border: 1px solid #e2d6cc;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.18);
 }
 
 /* RIGHT SIDE */
@@ -98,66 +99,63 @@
 .details-box {
   width: 100%;
   max-width: 420px;
-  position: relative;
-
-  background: rgba(255,255,255,0.08);
-  border-radius: 12px;
+  background: var(--ivory);
+  border-radius: 14px;
   padding: 22px;
-  backdrop-filter: blur(3px);
-  box-shadow: inset 0 2px 12px rgba(34,34,34,0.2);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+  position: relative;
+  border: 1px solid #e8dfd8;
 }
 
 /* TITLE */
 .product-title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  color: var(--deep-charcoal);
+  color: var(--charcoal);
   margin-bottom: 8px;
+  letter-spacing: 0.4px;
 }
 
 /* PRICE */
 .product-price {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
-  color: var(--bright-coral);
+  color: var(--terracotta);
   margin-bottom: 18px;
 }
 
-/* WISHLIST */
+/* WISHLIST BUTTON */
 .wishlist-btn {
   position: absolute;
   top: 10px;
   right: 10px;
 
   border-radius: 50%;
-  background: var(--soft-ivory);
+  background: var(--ivory);
   padding: 8px;
   cursor: pointer;
   font-size: 18px;
-  color: var(--deep-charcoal);
+  color: var(--charcoal);
 
-  box-shadow: 0 4px 12px rgba(34,34,34,0.3);
-  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+  transition: 0.25s ease;
 }
-
 .wishlist-btn:hover {
-  background: var(--bright-coral);
-  color: var(--soft-ivory);
-  transform: scale(1.2);
+  background: var(--terracotta);
+  color: white;
+  transform: scale(1.15);
 }
-
 .wishlist-btn.active {
-  background: var(--accent-gold);
-  color: var(--deep-charcoal);
+  background: var(--warm-gold);
+  color: var(--charcoal);
 }
 
-/* LABELS */
+/* LABEL */
 .label {
   margin: 15px 0 8px;
   font-weight: 600;
   font-size: 14px;
-  color: var(--soft-ivory);
+  color: var(--charcoal);
 }
 
 /* SIZES */
@@ -168,27 +166,24 @@
 }
 
 .size-btn {
-  border: 1px solid var(--bright-coral);
-  background: rgba(255,255,255,0.1);
+  border: 1px solid var(--terracotta);
+  background: var(--ivory);
   padding: 7px 14px;
   cursor: pointer;
   border-radius: 6px;
   font-size: 14px;
-  color: var(--soft-ivory);
+  color: var(--charcoal);
 
   transition: 0.25s;
 }
-
 .size-btn:hover {
-  background: var(--bright-corral);
-  border-color: var(--bright-coral);
-  color: var(--deep-charcoal);
+  background: var(--terracotta);
+  color: white;
 }
-
 .size-btn.active {
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: var(--deep-charcoal);
+  background: var(--warm-gold);
+  border-color: var(--warm-gold);
+  color: var(--charcoal);
 }
 
 /* QUANTITY */
@@ -200,29 +195,27 @@
 }
 
 .quantity button {
-  background: rgba(255,255,255,0.2);
+  background: var(--terracotta);
   border: none;
   padding: 7px 12px;
   cursor: pointer;
   font-size: 16px;
   border-radius: 6px;
-  color: var(--soft-ivory);
-
-  transition: 0.2s;
+  color: white;
+  transition: 0.25s ease;
 }
-
 .quantity button:hover {
-  background: rgba(255,255,255,0.35);
+  background: var(--warm-gold);
+  color: var(--charcoal);
 }
 
 .quantity input {
   width: 55px;
   text-align: center;
   padding: 6px;
-  background: rgba(255,255,255,0.15);
-  color: var(--deep-charcoal);
-
-  border: 1px solid var(--bright-coral);
+  background: var(--ivory);
+  color: var(--charcoal);
+  border: 1px solid var(--terracotta);
   border-radius: 6px;
 }
 
@@ -242,28 +235,26 @@
   border-radius: 8px;
   font-weight: 600;
   font-size: 15px;
-  transition: background 0.3s, transform 0.2s;
   letter-spacing: 0.3px;
+  transition: 0.3s ease;
 }
 
 /* ADD TO CART */
 .add-to-cart {
-  background: var(--bright-coral);
-  color: var(--soft-ivory);
+  background: var(--terracotta);
+  color: white;
 }
 .add-to-cart:hover {
-  background: var(--accent-gold);
-  color: var(--deep-charcoal);
-  transform: translateY(-2px);
+  background: var(--warm-gold);
+  color: var(--charcoal);
 }
 
 /* BUY NOW */
 .buy-now {
-  background: var(--primary-magenta);
-  color: var(--soft-ivory);
+  background: var(--warm-gold);
+  color: var(--charcoal);
 }
 .buy-now:hover {
-  background: var(--bright-coral);
-  color: var(--deep-charcoal);
-  transform: translateY(-2px);
+  background: var(--terracotta);
+  color: white;
 }

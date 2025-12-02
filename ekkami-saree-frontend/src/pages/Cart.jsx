@@ -145,7 +145,7 @@ export default function Cart() {
           <div className="cart-grid">
             {cartItems.map((item) => (
               <div key={item.product._id} className="cart-card">
-                <img src={item.product.image || "/images/placeholder.png"} alt={item.product.name} />
+                <img src={item.product.image || "/images/saree12.jpeg"} alt={item.product.name} />
                 <h3>{item.product.name}</h3>
                 <p>₹ {item.product.price}</p>
 
