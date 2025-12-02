@@ -10,7 +10,8 @@ export default function FormalSaree() {
       <div className="banner" style={{ backgroundImage: `url("/images/saree10.jpeg")` }}>
         <div className="banner-content">
           <h1>Formal Saree </h1>
-          <p>"Screen Se Real Life Tak"</p>
+          <p>Festive magic in every thread — celebrate with elegance.</p>
+          
         </div>
       </div>
 

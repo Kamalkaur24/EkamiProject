@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaHeart, FaShoppingCart } from "react-icons/fa"; // ← React icons
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
       {/* Left Logo */}
       <div className="navbar-logo">
         <Link to="/">
-          <img src="images/saree9.jpeg" alt="EKAMMI Logo" className="logo-img" />
+          <img src="images/sareehouse.jpg" alt="EKAMMI Logo" className="logo-img" />
         </Link>
       </div>
 
@@ -32,8 +33,12 @@ const Navbar = () => {
 
       {/* Right Side Icons */}
       <div className="navbar-icons">
-        <Link to="/wishlist" className="icon">♡</Link>
-        <Link to="/cart" className="icon">🛒</Link>
+        <Link to="/wishlist" className="icon">
+          <FaHeart color="#ff4d6d" size={22} /> {/* red heart */}
+        </Link>
+        <Link to="/cart" className="icon">
+          <FaShoppingCart color="#ffd700" size={22} /> {/* gold cart */}
+        </Link>
 
         {/* Conditional rendering */}
         {loggedInUser ? (

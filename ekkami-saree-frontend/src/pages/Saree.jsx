@@ -10,8 +10,9 @@ export default function Saree() {
     <div className="category-page">
       <div className="banner" style={{ backgroundImage: `url("/images/saree13.jpeg")` }}>
         <div className="banner-content">
-          <h1>Festive Saree</h1>
-          <p>“Nazakat, Shauq & Sheher di Shaan”</p>
+          <h1>Saree</h1>
+         <p>“Crafted with love, worn with grace — redefine your style with Ekammi Sarees.”</p>
+
         </div>
       </div>
 

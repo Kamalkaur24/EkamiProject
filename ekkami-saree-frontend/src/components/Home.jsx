@@ -55,16 +55,17 @@ export default function Home() {
   return (
     <div className="home-page">
       {/* Banner Section */}
-      <div className="home-banner" style={{ backgroundImage: `url(/images/saree6.jpeg)` }}>
+      <div className="home-banner" style={{ backgroundImage: `url(/images/gemini2.jpeg)` }}>
         <div className="home-banner-content">
-          <h1>LIBAAS</h1>
-          <p>Welcome to EKAMMI — Discover Our New Fashion Trends</p>
-          <button className="shop-btn">Shop Now</button>
+          <h1>EKAMMI</h1>
+<p>Discover elegance. Embrace style. Define yourself.</p>
+
+          
         </div>
       </div>
 
       {/* Featured Products */}
-      <h2 className="home-heading">✨ Featured Products ✨</h2>
+      <h2 className="home-heading">💖 Bestseller Sarees 💖</h2>
       <div className="home-product-grid">
         {featuredProducts.map((item) => (
           <ProductCard key={item._id} product={item} />

@@ -7,18 +7,35 @@
   --dim-grey: #6d6875;
 }
 
-/* About Page Base */
+/* Page Background */
 .about-page {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--dim-grey);
-  background: var(--peach-fuzz);
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, var(--peach-fuzz), var(--powder-blush), var(--cotton-candy));
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
 }
 
-/* Banner */
+/* CARD WRAPPER */
+.about-card {
+  width: 90%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  padding-bottom: 40px;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 35px rgba(109, 104, 117, 0.25);
+  animation: cardPop 0.5s ease-out;
+  overflow: hidden;
+}
+
+/* Banner inside card */
 .about-banner {
-  position: relative;
   width: 100%;
-  height: 380px;
+  height: 260px;
+  position: relative;
+  border-radius: 18px 18px 0 0;
   overflow: hidden;
 }
 
@@ -26,92 +43,84 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(60%);
-  transform: scale(1.05);
+  filter: brightness(65%);
 }
 
 .banner-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  animation: fadeDown 1s ease;
+  bottom: 15px;
+  left: 25px;
+  animation: fadeDown 0.9s ease;
 }
 
 .banner-text h1 {
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--dusty-rose);
+  color: white;
+  text-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-/* Content */
+/* CONTENT INSIDE CARD */
 .about-content {
-  max-width: 950px;
-  margin: 50px auto;
-  padding: 0 24px;
+  padding: 30px 40px;
   text-align: center;
-  line-height: 1.9;
-  font-size: 17px;
   color: var(--dim-grey);
-  animation: fadeUp 1.2s ease;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .about-content h2 {
-  margin: 35px 0 20px;
-  font-size: 26px;
-  color: var(--cotton-candy);
+  margin: 25px 0 15px;
+  font-size: 22px;
   font-weight: 700;
+  color: var(--cotton-candy);
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
-.about-content p {
-  margin-bottom: 16px;
-}
-
+/* List Style */
 .about-content ul {
   list-style: none;
   padding: 0;
-  margin: 20px 0;
 }
 
 .about-content ul li {
-  margin: 10px 0;
-  padding: 10px 0;
-  font-size: 16px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.35);
+  margin: 8px 0;
+  padding: 10px 15px;
+  border-radius: 12px;
   color: var(--dusty-rose);
   font-weight: 500;
+  box-shadow: 0 4px 10px rgba(109, 104, 117, 0.15);
 }
 
-/* Closing line */
+/* Closing */
 .closing {
-  margin-top: 30px;
+  margin-top: 25px;
   font-weight: 600;
   font-style: italic;
   color: var(--dim-grey);
 }
 
-/* Links */
-.about-content a {
-  color: var(--cotton-candy);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: 0.25s ease;
+/* Card Pop Animation */
+@keyframes cardPop {
+  0% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-.about-content a:hover {
-  border-color: var(--cotton-candy);
-  opacity: 0.85;
-}
-
-/* Animations */
-@keyframes fadeUp {
+/* Fade animation */
+@keyframes fadeDown {
   from {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(-15px);
   }
   to {
     opacity: 1;
@@ -119,28 +128,16 @@
   }
 }
 
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -40%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .banner-text h1 {
-    font-size: 34px;
+    font-size: 26px;
   }
-
   .about-content {
-    font-size: 15px;
+    padding: 25px 20px;
+    font-size: 14px;
   }
-
   .about-content h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
 }

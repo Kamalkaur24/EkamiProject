@@ -1,10 +1,9 @@
-/* ---------------- VARIABLES ---------------- */
 :root {
-  --primary-magenta: #C71585;      /* Royal Magenta */
-  --bright-coral: #FF6F61;         /* Bright Coral */
-  --accent-gold: #FFD700;          /* Gold */
-  --soft-ivory: #FFF8F0;           /* Soft Ivory */
-  --deep-charcoal: #222222;        /* Deep Charcoal */
+  --primary-magenta: #C71585;
+  --bright-coral: #FF6F61;
+  --accent-gold: #FFD700;
+  --soft-ivory: #FFF8F0;
+  --deep-charcoal: #222222;
 }
 
 /* Reset */
@@ -17,153 +16,32 @@ html, body {
   background: var(--soft-ivory);
 }
 
-/* Signup Page Layout */
+/* Container now full width */
 .signup-container {
   display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
   min-height: 100vh;
   width: 100%;
+  padding: 20px;
 }
 
-/* Left Image Panel */
-.signup-image {
-  flex: 1;
-  overflow: hidden;
-}
-
-.signup-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease-in-out;
-}
-
-.signup-image img:hover {
-  transform: scale(1.08);
-}
-
+/* Remove left image panel */
 /* Right Gradient Panel */
 .signup-right {
-  flex: 1;
+  width: 100%;
+  max-width: 400px; /* keep card from stretching too much */
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, var(--primary-magenta), var(--bright-coral), var(--accent-gold));
+  padding: 40px 20px;
+  border-radius: 18px;
 }
 
 /* Signup Card */
 .signup-card {
-  width: 380px;
-  padding: 40px;
-  background: rgba(255, 248, 240, 0.95);  /* soft ivory with slight transparency */
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(34,34,34,0.15);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.signup-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(34,34,34,0.25);
-}
-
-.signup-card h2 {
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--primary-magenta);
-  margin-bottom: 25px;
-}
-
-/* Input Fields */
-.signup-card input {
   width: 100%;
-  padding: 14px;
-  margin: 12px 0;
-  border-radius: 8px;
-  border: 1px solid var(--primary-magenta);
-  background: #fff8f0;
-  font-size: 15px;
-  color: var(--deep-charcoal);
-  transition: 0.25s;
-}
-
-.signup-card input:focus {
-  border-color: var(--bright-coral);
-  box-shadow: 0 0 6px rgba(255,111,97,0.4);
-  outline: none;
-}
-
-/* Primary Button - Create Account */
-.create-btn {
-  width: 100%;
-  padding: 14px;
-  margin-top: 15px;
-  border-radius: 8px;
-  border: none;
-  background: var(--accent-gold);
-  color: var(--deep-charcoal);
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.create-btn:hover {
-  background: var(--bright-coral);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-/* Google Sign-in Button */
-.google-btn {
-  width: 100%;
-  padding: 12px;
-  margin-top: 12px;
-  border-radius: 8px;
-  border: 1px solid var(--bright-coral);
-  background: var(--soft-ivory);
-  color: var(--primary-magenta);
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.google-btn:hover {
-  background: #ffe7e5; /* subtle coral tint */
-  border-color: var(--primary-magenta);
-}
-
-/* Links */
-.login-text {
-  margin-top: 18px;
-  font-size: 14px;
-  color: var(--deep-charcoal);
-}
-
-.login-text a {
-  color: var(--primary-magenta);
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.25s;
-}
-
-.login-text a:hover {
-  text-decoration: underline;
-}
-
-/* Back Home */
-.back-home {
-  margin-top: 12px;
-  font-size: 14px;
-}
-
-.back-home a {
-  color: var(--bright-coral);
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.back-home a:hover {
-  text-decoration: underline;
+  padding: 30px;
+  background: rgba(255, 248, 240, 0.95);
 }
