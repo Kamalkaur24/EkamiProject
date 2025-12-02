@@ -46,6 +46,7 @@ function computeTotalPrice(items) {
     }, 0);
 }
 
+
 const updateCart = async (req, res) => {
     try {
         const userId = req.user && req.user._id;
@@ -58,8 +59,8 @@ const updateCart = async (req, res) => {
         let cart = await CartModel.findOne({ user: userId });
         if (!cart) cart = new CartModel({ user: userId, items: [], totalQuantity: 0, totalPrice: 0 });
 
+        // If items array is sent, full replace
         if (Array.isArray(items)) {
-            // replace cart
             const cleanItems = items
                 .filter(it => it && typeof it.productId === "string" && typeof it.quantity === "number" && it.quantity > 0)
                 .map(it => ({ productId: it.productId, quantity: Math.floor(it.quantity) }));
@@ -72,11 +73,25 @@ const updateCart = async (req, res) => {
             return res.json({ success: true, cart });
         }
 
-        if (!productId || typeof productId !== "string") {
-            return res.status(400).json({ success: false, message: "productId is required (or provide items array)" });
+        const act = (action || "add").toString().toLowerCase();
+
+        // 🔴 NEW: handle clear (no productId needed)
+        if (act === "clear") {
+            cart.items = [];
+            cart.totalQuantity = 0;
+            cart.totalPrice = 0;
+            await cart.save();
+            return res.json({ success: true, cart });
         }
 
-        const act = (action || "add").toString().toLowerCase();
+        // For other actions, productId is required
+        if (!productId || typeof productId !== "string") {
+            return res.status(400).json({
+                success: false,
+                message: "productId is required (or provide items array)"
+            });
+        }
+
         const idx = cart.items.findIndex(it => it.productId === productId);
 
         if (act === "add") {
@@ -107,6 +122,7 @@ const updateCart = async (req, res) => {
         return res.status(500).json({ success: false, message: "Server error" });
     }
 };
+
 
 module.exports = { updateCart };
 

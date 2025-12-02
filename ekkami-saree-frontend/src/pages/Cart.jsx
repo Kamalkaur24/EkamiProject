@@ -3,13 +3,15 @@ import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "./Cart.css";
 import { products } from "../data/productData";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]); // { productId, quantity, product? }
   const [loading, setLoading] = useState(true);
   const [workingId, setWorkingId] = useState(null); // productId being updated
   const token = localStorage.getItem("token");
-
+  const navigate = useNavigate();
   const cartGetUrl = "http://localhost:8080/cart"; // GET
   const cartUpdateUrl = "http://localhost:8080/cart/update"; // PUT
 
@@ -178,10 +180,15 @@ export default function Cart() {
             <h3>Total: ₹ {total}</h3>
             <button
               className="checkout-btn"
-              onClick={() => alert("Proceed to checkout — implement payment flow")}
+              onClick={() =>
+                navigate("/checkout", {
+                  state: { cartItems }, // ✅ send array of items to Checkout
+                })
+              }
             >
               Proceed to Checkout
             </button>
+
           </div>
         </>
       )}

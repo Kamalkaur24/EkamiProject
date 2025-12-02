@@ -23,6 +23,7 @@ import AboutUs from "./pages/AboutUs";
 import SizeChart from "./pages/SizeChart";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 // ✅ Scroll to top on route change
 function ScrollToTop() {
@@ -93,6 +94,17 @@ function App() {
               </PrivateRoute>
             }
           />
+
+
+          <Route
+            path="/checkout"
+            element={
+              <PrivateRoute>
+                <Checkout />
+              </PrivateRoute>
+            }
+          />
+
 
           {/* Category Pages */}
           <Route path="/Saree" element={<Saree />} />

@@ -6,6 +6,7 @@ const AuthRouter = require("./routes/AuthRouter");
 const ProductRouter = require("./routes/ProductRouter");
 const WishlistRouter = require("./routes/WishlistRouter");
 const CartRouter = require("./routes/CartRouter");
+const OrderRouter = require("./routes/OrderRouter");
 
 require('dotenv').config();
 const connectDB = require("./config/db");
@@ -22,6 +23,7 @@ app.use('/auth', AuthRouter);
 app.use('/products', ProductRouter);
 app.use('/wishlist', WishlistRouter);
 app.use('/cart', CartRouter);
+app.use("/orders", OrderRouter);
 
 
 
