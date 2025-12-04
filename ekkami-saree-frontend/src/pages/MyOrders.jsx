@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./MyOrders.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { api } from "../utils/api";
 
 function MyOrders() {
