@@ -3,12 +3,13 @@ import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import "./ProductModal.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductModal({ product, onClose }) {
   const [wishlisted, setWishlisted] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [working, setWorking] = useState(false);
-
+  const navigate = useNavigate();
   // Memoize availableSizes so it doesn't change every render
   const availableSizes = useMemo(
     () => product?.sizes ?? ["XS", "S", "M", "L"],
@@ -134,6 +135,35 @@ export default function ProductModal({ product, onClose }) {
     if (e.target === e.currentTarget) onClose?.();
   };
 
+
+  const buyNow = () => {
+    if (!token) {
+      alert("Please login first!");
+      return;
+    }
+
+    if (!productId) return;
+
+    const qty = clampQuantity(quantity);
+
+    navigate("/checkout_single", {
+      state: {
+        item: {
+          productId,
+          quantity: qty,
+          size: selectedSize,
+          price,
+          title,
+          image,
+        },
+      },
+    });
+
+    onClose?.();
+  };
+
+
+
   if (!product) return null;
 
   return (
@@ -155,7 +185,7 @@ export default function ProductModal({ product, onClose }) {
         <div className="modal-right">
           <div className="details-box">
             <h2 className="product-title">{title}</h2>
-           
+
 
             <p className="product-price">Rs. {price}</p>
 
@@ -179,9 +209,8 @@ export default function ProductModal({ product, onClose }) {
                 <button
                   key={size}
                   type="button"
-                  className={`size-btn ${
-                    selectedSize === size ? "active" : ""
-                  }`}
+                  className={`size-btn ${selectedSize === size ? "active" : ""
+                    }`}
                   onClick={() => setSelectedSize(size)}
                   aria-pressed={selectedSize === size}
                 >
@@ -224,13 +253,12 @@ export default function ProductModal({ product, onClose }) {
               </button>
               <button
                 className="buy-now"
-                onClick={() =>
-                  alert("Buy now clicked — implement checkout flow")
-                }
+                onClick={buyNow}
                 disabled={working}
               >
                 Buy Now
               </button>
+
             </div>
           </div>
         </div>

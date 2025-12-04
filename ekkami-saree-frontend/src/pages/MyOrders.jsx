@@ -19,7 +19,7 @@ function MyOrders() {
                     return;
                 }
 
-                const res = await api.get("/orders/get-orders");
+                const res = await api.get("/orders/get_orders");
 
                 console.log(res.data.orders);
                 if (res.data.success === true) {
@@ -35,7 +35,7 @@ function MyOrders() {
         };
 
         fetchOrders();
-    });
+    }, []);
 
     return (
         <div className="myorders-page">
@@ -54,7 +54,7 @@ function MyOrders() {
 
                         <h4>Items:</h4>
                         {order.items.map((item, i) => (
-                            <li key={i}>{item.name} - {`₹${item.price}`} x {`${item.quantity}`}</li>
+                            <li key={i}>{item.name} - {`₹${item.price}`} x {`${item.quantity} [Size: ${item.size}]`}</li>
                         ))}
 
                         <h4>Address:</h4>

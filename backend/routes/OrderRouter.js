@@ -11,7 +11,7 @@ const {
 router.post("/", ensureAuthenticated, createOrder);
 
 // Get all orders of logged-in user
-router.get("/get-orders", ensureAuthenticated, getMyOrders);
+router.get("/get_orders", ensureAuthenticated, getMyOrders);
 
 // Get single order
 router.get("/:id", ensureAuthenticated, getOrderById);

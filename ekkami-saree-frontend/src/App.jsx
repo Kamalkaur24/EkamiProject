@@ -25,6 +25,7 @@ import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import MyOrders from "./pages/MyOrders";
+import CheckoutSingle from "./pages/CheckoutSingle";
 
 // ✅ Scroll to top on route change
 function ScrollToTop() {
@@ -102,6 +103,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Checkout />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/checkout_single"
+            element={
+              <PrivateRoute>
+                <CheckoutSingle />
               </PrivateRoute>
             }
           />

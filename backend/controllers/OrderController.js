@@ -19,7 +19,7 @@ const createOrder = async (req, res) => {
 
         let { items, paymentMethod = "COD", shipping } = req.body;
 
-        // Basic shipping validation
+        // ✅ Basic shipping validation
         if (
             !shipping ||
             !shipping.fullName ||
@@ -34,9 +34,7 @@ const createOrder = async (req, res) => {
             });
         }
 
-
-
-        // If items not sent from frontend, fallback to cart
+        // ✅ If items not sent from frontend, fallback to cart
         if (!Array.isArray(items) || items.length === 0) {
             const cart = await CartModel.findOne({ user: userId }).lean();
 
@@ -47,13 +45,16 @@ const createOrder = async (req, res) => {
                 });
             }
 
-            items = cart.items.map(it => ({
+            // Copy items from cart, keep size if present
+            items = cart.items.map((it) => ({
                 productId: it.productId,
                 quantity: it.quantity,
+                size: it.size,       // 👈 may be undefined, handled later
+                price: it.price,     // optional (if you store price in cart)
             }));
         }
 
-        // Build order items + compute total
+        // ✅ Build order items + compute total
         const orderItems = [];
         let computedTotal = 0;
 
@@ -72,11 +73,15 @@ const createOrder = async (req, res) => {
             const price = Number(it.price ?? prod.price) || 0;
             const subtotal = price * quantity;
 
+            // ✅ size can come from req.body or cart; fallback to "M"
+            const size = it.size || "M";
+
             orderItems.push({
                 productId: it.productId,
                 name: prod.name,
                 price,
                 quantity,
+                size,      // 👈 always set now
                 subtotal,
             });
 
@@ -102,7 +107,7 @@ const createOrder = async (req, res) => {
 
         await order.save();
 
-        // Clear cart after successful order
+        // ✅ Clear cart after successful order (same as before)
         await CartModel.updateOne(
             { user: userId },
             { $set: { items: [], totalQuantity: 0, totalPrice: 0 } }
@@ -134,10 +139,19 @@ const getMyOrders = async (req, res) => {
             .sort({ createdAt: -1 })
             .lean();
 
-        return res.json({
-            success: true,
-            orders,
-        });
+        if (orders) {
+            return res.json({
+                success: true,
+                orders,
+            });
+        } else {
+            return res.json({
+                success: true,
+                orders: [],
+            });
+        }
+
+
     } catch (error) {
         console.log("Get my orders error:", error);
         return res.status(500).json({
